@@ -1,28 +1,100 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeni Shop - Musiri Boutique</title>
+<title>Jeni Shop - Musiri</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-:root{--pink:#e91e63;--light:#fff0f5}
-body{background:var(--light);color:#333}
-header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);padding:12px 15px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;font-size:22px;color:var(--pink)} .logo small{font-size:11px;color:#555;display:block}
-.cart-btn{background:var(--pink);color:#fff;border:0;padding:8px 14px;border-radius:20px;font-weight:bold;cursor:pointer}
-.hero{background:linear-gradient(135deg,#e91e63,#ff80ab);color:#fff;text-align:center;padding:20px 15px}
-.hero h1{font-size:26px} .hero p{font-size:13px;margin-top:5px;opacity:.9}
-.products{padding:15px;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:800px;margin:0 auto}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:.2s}
-.card:active{transform:scale(.98)}
-.card img{width:100%;height:280px;object-fit:cover;object-position:top}
-.info{padding:10px}
-.info h3{font-size:14px;height:34px;overflow:hidden}
-.price{margin:6px 0;display:flex;gap:8px;align-items:center}
-.new{font-weight:900;color:var(--pink)} .old{font-size:12px;color:#999;text-decoration:line-through}
-.add{width:100%;background:#111;color:#fff;border:0;padding:10px;border-radius:10px;font-weight:bold;cursor:pointer}
-.add.added{background:var(--pink)}
-footer{background:#111;color:#888;text-align:center;padding:15px;font-size:12px;margin-top:20px}
-/* Cart Drawer */
-#cart{position:fixed;right:-100%;top:0;width:85%;max-width:380px;height:100%;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#fff5f8}
+header{background:#e91e63;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
+header h1{font-family:cursive;font-size:26px}
+header p{font-size:12px}
+.grid{padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:600px;margin:auto}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.card img{width:100%;height:340px;object-fit:cover;object-position:top;background:#eee}
+.card .info{padding:10px;text-align:center}
+.card .info b{font-family:cursive;font-size:18px}
+.price{color:#e91e63;font-weight:bold;margin:4px 0}
+.btn{width:100%;background:#e91e63;color:#fff;border:0;padding:10px;border-radius:25px;font-weight:bold;margin-top:6px}
+.btn-cart{width:100%;background:#111;color:#fff;border:0;padding:10px;border-radius:25px;font-weight:bold;margin-top:6px}
+#cartBar{position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;padding:12px 15px;display:none;justify-content:space-between;align-items:center;z-index:20}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Jeni Shop 💖 ✨</h1>
+<p>Musiri 7639030125 - Free Delivery</p>
+</header>
+
+<div class="grid">
+<!-- PRODUCT 1 -->
+<div class="card">
+<img src="IMG_3b7900c0-5bfa-49b4-ba27-8b96c4ad9d0b.jpg" alt="Long Kurti">
+<div class="info">
+<b>Long Kurti</b>
+<div class="price">Rs 650 <span style="color:#999;text-decoration:line-through;font-size:12px">Rs 999</span></div>
+<button class="btn-cart" onclick="add('Long Kurti - Rs 650')">Add to Cart</button>
+<button class="btn" onclick="order('Long Kurti - Rs 650')">Order</button>
+</div>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="card">
+<img src="IMG_4346f676-4b1e-4d89-900b-fc3f99df78b2.jpg" alt="Couple Combo">
+<div class="info">
+<b>Couple Combo</b>
+<div class="price">Rs 1250 <span style="color:#999;text-decoration:line-through;font-size:12px">Rs 1999</span></div>
+<button class="btn-cart" onclick="add('Couple Combo - Rs 1250')">Add to Cart</button>
+<button class="btn" onclick="order('Couple Combo - Rs 1250')">Order</button>
+</div>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="card">
+<img src="IMG_94ab7bf5-6c08-4a40-a78b-fed564125f2d.jpg" alt="Purple Anarkali">
+<div class="info">
+<b>Purple Anarkali</b>
+<div class="price">Rs 950 <span style="color:#999;text-decoration:line-through;font-size:12px">Rs 1499</span></div>
+<button class="btn-cart" onclick="add('Purple Anarkali - Rs 950')">Add to Cart</button>
+<button class="btn" onclick="order('Purple Anarkali - Rs 950')">Order</button>
+</div>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="card">
+<img src="IMG_b06b9b8a-a308-4fcd-bc9c-61e747220412.jpg" alt="Red Saree">
+<div class="info">
+<b>Red Saree</b>
+<div class="price">Rs 850 <span style="color:#999;text-decoration:line-through;font-size:12px">Rs 1299</span></div>
+<button class="btn-cart" onclick="add('Red Saree - Rs 850')">Add to Cart</button>
+<button class="btn" onclick="order('Red Saree - Rs 850')">Order</button>
+</div>
+</div>
+</div>
+
+<div id="cartBar">
+<span id="cartText">0 items</span>
+<button style="background:#25D366;color:#fff;border:0;padding:8px 15px;border-radius:20px;font-weight:bold" onclick="checkout()">WhatsApp Order</button>
+</div>
+
+<script>
+let cart=[];
+function add(name){
+cart.push(name);
+document.getElementById('cartBar').style.display='flex';
+document.getElementById('cartText').innerText=cart.length+' items in Cart';
+}
+function order(name){
+window.open('https://wa.me/917639030125?text=Hi Jeni Shop 💖%0AEnakku '+encodeURIComponent(name)+' venum','_blank');
+}
+function checkout(){
+if(cart.length==0)return;
+let msg='Hi Jeni Shop 💖%0AOrder:%0A-'+cart.join('%0A-');
+window.open('https://wa.me/917639030125?text='+msg,'_blank');
+}
+</script>
+</body>
+  </html>
+  
